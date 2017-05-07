@@ -83,7 +83,7 @@ public class NowAndNextViewHolder extends ViewHolder implements View.OnClickList
 
     /**
      * Sets the current channel information
-     * @param channelInformation
+     * @param channelInformation the channel information for the current channel
      */
     public void setChannel(ChannelInformation channelInformation) {
         this.channelInformation = channelInformation;
@@ -96,7 +96,7 @@ public class NowAndNextViewHolder extends ViewHolder implements View.OnClickList
                     String.format("Channel %s : %s\nDescription  : %s",
                             channelInformation.getCatalogOrderNumber(),
                             channelInformation.getTitle(),
-                            channelInformation.getDescription()), Toast.LENGTH_LONG);
+                            channelInformation.getDescription()), Toast.LENGTH_LONG).show();
         }
     }
 }

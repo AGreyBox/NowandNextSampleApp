@@ -46,10 +46,12 @@ public class NowAndNextRecyclerViewAdapter extends RecyclerView.Adapter<NowAndNe
     @Override
     public void onBindViewHolder(final NowAndNextViewHolder holder, int position) {
         holder.clearHolder();
+
         Call<NowAndNextLiveChannelProgram> channelNowAndNext =
                 meoNowAndNextService
                         .getChannelNowAndNext(String.format(MeoNowAndNextService.CALL_LETTER_EQ,
                         getItem(position).getCallLetter()));
+        holder.setChannel(getItem(position));
         channelNowAndNext.enqueue(new Callback<NowAndNextLiveChannelProgram>() {
             @Override
             public void onResponse(Call<NowAndNextLiveChannelProgram> call, Response<NowAndNextLiveChannelProgram> response) {
@@ -74,16 +76,26 @@ public class NowAndNextRecyclerViewAdapter extends RecyclerView.Adapter<NowAndNe
         Timber.d("New size : %d", getItemCount());
     }
 
-    // region Helper Methods
+    /**
+     * Helper method - Get the item for the position
+     * @param position the position of the
+     * @return the channel information for the position
+     */
     public ChannelInformation getItem(int position) {
         return channelList.get(position);
     }
-
+    /**
+     * Helper method - Add a Single item
+     * @param channelInformation the channel information to add
+     */
     public void add(ChannelInformation channelInformation) {
         channelList.add(channelInformation);
         notifyItemChanged(channelList.size() - 1);
     }
-
+    /**
+     * Helper method - remove a single item
+     * @param channelInformation the channel information to remove
+     */
     public void remove(ChannelInformation channelInformation) {
         int position = channelList.indexOf(channelInformation);
         if (position != -1) {
@@ -92,6 +104,9 @@ public class NowAndNextRecyclerViewAdapter extends RecyclerView.Adapter<NowAndNe
         }
     }
 
+    /**
+     * clears the list of all items
+     */
     public void clearList() {
         while (getItemCount() > 0) {
             remove(getItem(0));

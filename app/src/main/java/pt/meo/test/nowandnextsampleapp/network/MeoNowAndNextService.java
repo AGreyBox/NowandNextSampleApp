@@ -11,7 +11,6 @@ import retrofit2.http.Url;
  * Retrofit service interface for to get the channel list and programming info
  * Created by dplopez on 07-05-2017.
  */
-
 public interface MeoNowAndNextService {
     String BASE_URL = "http://ott.online.meo.pt";
     String CALL_LETTER_EQ = "CallLetter  eq '%s'";
