@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Now and Next Sample App</string>
+    <string name="image_url_template">http://proxycache.app.iptv.telecom.pt:8080/eemstb/ImageHandler.ashx?evTitle=%1$s&amp;chCallLetter=%2$s&amp;profile=16_9&amp;width=320</string>
+    <string name="unknown_title">Informação desconhecida</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="row_text_padding_left">10dp</dimen>
+    <dimen name="viewholder_row_height">120dp</dimen>
+
+</resources>
